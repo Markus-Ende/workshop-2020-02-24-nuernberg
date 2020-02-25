@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { BookDataService } from '../book-data.service';
+import { Book } from '../book';
 
 @Component({
   selector: 'sft-book-list',
@@ -6,22 +8,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./book-list.component.scss']
 })
 export class BookListComponent implements OnInit {
-  books = [
-    {
-      "title": "Design Patterns",
-      "subtitle": "Elements of Reusable Object-Oriented Software"
-    },
-    {
-      "title": "REST und HTTP",
-      "subtitle": "Entwicklung und Integration nach dem Architekturstil des Web"
-    },
-    {
-      "title": "Eloquent JavaScript",
-      "subtitle": "A Modern Introduction to Programming"
-    }
-  ]
+  books: Book[];
 
-  constructor() { }
+  constructor(private bookData: BookDataService) {
+    this.books = bookData.getBooks();
+  }
 
   ngOnInit(): void {
   }
