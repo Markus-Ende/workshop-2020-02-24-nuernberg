@@ -8,4 +8,8 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'The Bookmonkey';
 
+  onTitleClick(e: string) {
+    console.log(`clicked: ${e}`);
+    this.title += '!';
+  }
 }
