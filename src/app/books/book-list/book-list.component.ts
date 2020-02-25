@@ -1,25 +1,21 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { BookDataService } from '../book-data.service';
 import { Book } from '../book';
-import { Subscription } from 'rxjs';
+import { Subscription, Observable } from 'rxjs';
 
 @Component({
   selector: 'sft-book-list',
   templateUrl: './book-list.component.html',
   styleUrls: ['./book-list.component.scss']
 })
-export class BookListComponent implements OnInit, OnDestroy {
-  books?: Book[];
-  private subscription = Subscription.EMPTY;
+export class BookListComponent implements OnInit {
+  books$?: Observable<Book[]>;
 
   constructor(private bookData: BookDataService) {
   }
 
   ngOnInit(): void {
-    this.subscription = this.bookData.getBooks().subscribe({ next: books => this.books = books });
+    this.books$ = this.bookData.getBooks();
   }
 
-  ngOnDestroy(): void {
-    this.subscription.unsubscribe();
-  }
 }
