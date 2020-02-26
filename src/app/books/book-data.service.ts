@@ -21,4 +21,8 @@ export class BookDataService {
       return NEVER;
     }
   }
+
+  editBook(book: Book): Observable<Book> {
+    return this.http.put<Book>(`http://localhost:4730/books/${book.isbn}`, book);
+  }
 }

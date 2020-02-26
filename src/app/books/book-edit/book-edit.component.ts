@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Book } from '../book';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
-import { map, switchMap } from 'rxjs/operators';
+import { map, switchMap, take } from 'rxjs/operators';
 import { BookDataService } from '../book-data.service';
 
 @Component({
@@ -24,5 +24,7 @@ export class BookEditComponent implements OnInit {
 
   save(value: { title: string, abstract: string, author: string }, book: Book) {
     console.log('save:', value, book);
+    // this.bookData.editBook(book).toPromise();
+    this.bookData.editBook(book).pipe(take(1)).subscribe();
   }
 }
