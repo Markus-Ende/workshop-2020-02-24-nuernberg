@@ -1,5 +1,6 @@
 <table>
   <tr *ngFor="let book of books$ | async">
     <td>{{ book.title }}</td>
+    <td><a [routerLink]="book.isbn">details</a></td>
   </tr>
 </table>
