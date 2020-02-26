@@ -1,0 +1,29 @@
+<ng-container *ngIf="(book$ | async) as book">
+
+  <form #form="ngForm" (ngSubmit)="save(form.value, book)">
+    <label for="title">Title:</label>
+    <div>
+      <input id="title" type="text" [(ngModel)]="book.title" name="title" #title="ngModel" required>
+      <span [hidden]="!title.errors?.required || title.pristine" class="error">Title required!</span>
+    </div>
+    <label for="abstract">Abstract:</label>
+    <div>
+      <input id="abstract" type="text" [(ngModel)]="book.abstract" name="abstract" #abstract="ngModel" required>
+      <span [hidden]="!abstract.errors?.required || abstract.pristine" class="error">Abstract required!</span>
+    </div>
+    <label for="author">Author:</label>
+    <div>
+      <input id="author" type="text" [(ngModel)]="book.author" name="author" #author="ngModel" required>
+      <span [hidden]="!author.errors?.required || author.pristine" class="error">Author required!</span>
+    </div>
+
+    <button type="submit" [disabled]="!form.valid">Save</button>
+  </form>
+
+  <pre>{{ form?.value | json }}</pre>
+
+  <pre>{{ title?.errors | json }}</pre>
+
+  <pre>{{ form?.valid | json }}</pre>
+
+</ng-container>
