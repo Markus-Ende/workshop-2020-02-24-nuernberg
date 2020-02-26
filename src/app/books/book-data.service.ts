@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, of, NEVER } from 'rxjs';
+import { NEVER, Observable } from 'rxjs';
 import { Book } from './book';
 
 @Injectable({

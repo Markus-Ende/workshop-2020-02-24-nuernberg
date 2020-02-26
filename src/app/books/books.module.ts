@@ -11,9 +11,8 @@ import { BookDetailComponent } from './book-detail/book-detail.component';
   declarations: [BooksComponent, BookListComponent, BookDetailComponent],
   imports: [
     CommonModule,
-    BooksRoutingModule,
-    HttpClientModule
+    BooksRoutingModule
   ],
-  exports: [BooksComponent, BookListComponent]
+  exports: []
 })
 export class BooksModule { }

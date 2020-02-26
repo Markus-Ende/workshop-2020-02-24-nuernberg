@@ -1,7 +1,7 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { BookDataService } from '../book-data.service';
+import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Book } from '../book';
-import { Subscription, Observable } from 'rxjs';
+import { BookDataService } from '../book-data.service';
 
 @Component({
   selector: 'sft-book-list',
