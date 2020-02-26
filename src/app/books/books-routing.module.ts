@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { BookDetailComponent } from './book-detail/book-detail.component';
+import { BookEditComponent } from './book-edit/book-edit.component';
 import { BookListComponent } from './book-list/book-list.component';
+import { BookNewComponent } from './book-new/book-new.component';
 import { BooksComponent } from './books/books.component';
 import { ConfirmCandeactivateGuard } from './confirm-candeactivate.guard';
-import { BookEditComponent } from './book-edit/book-edit.component';
 
 
 const routes: Routes = [{
@@ -14,6 +15,10 @@ const routes: Routes = [{
     {
       path: '',
       component: BookListComponent
+    },
+    {
+      path: 'new',
+      component: BookNewComponent
     },
     {
       path: ':isbn/edit',

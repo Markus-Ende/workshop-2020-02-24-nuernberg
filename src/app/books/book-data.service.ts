@@ -7,7 +7,6 @@ import { Book } from './book';
   providedIn: 'root'
 })
 export class BookDataService {
-
   constructor(private http: HttpClient) { }
 
   getBooks(): Observable<Book[]> {
@@ -24,5 +23,9 @@ export class BookDataService {
 
   editBook(book: Book): Observable<Book> {
     return this.http.put<Book>(`http://localhost:4730/books/${book.isbn}`, book);
+  }
+
+  newBook(book: Book): Observable<Book> {
+    return this.http.post<Book>(`http://localhost:4730/books`, book);
   }
 }

@@ -1,7 +1,7 @@
 export interface Book {
   title: string;
-  subtitle: string;
+  subtitle?: string;
   author: string;
-  abstract: string;
-  isbn: string;
+  abstract?: string;
+  isbn?: string;
 }

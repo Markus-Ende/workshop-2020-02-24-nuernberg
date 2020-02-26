@@ -1,0 +1,24 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+  <label for="title">Title:</label>
+  <div>
+    <input type="text" formControlName="title" required>
+    <span [hidden]="!title?.hasError('required') || title?.pristine" class="error">Title required!</span>
+  </div>
+
+
+  <label for="abstract">Abstract (optional):</label>
+  <div>
+    <input type="text" formControlName="abstract">
+  </div>
+
+
+  <label for="author">Author:</label>
+  <div>
+    <input id="author" type="text" formControlName="author" required>
+    <span [hidden]="!author?.hasError('required') || author?.pristine" class="error">Author required!</span>
+  </div>
+
+
+  <button type="submit" [disabled]="!form?.valid">Save</button>
+</form>
